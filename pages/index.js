@@ -18,7 +18,7 @@ export default function Home() {
   const handleSubmission = async (value) => {
       setLoading(true);
       if(value.length === 42 ){
-        const ENDPOINT = `http://localhost:5002/v1/address?convert=${value}`
+        const ENDPOINT = `${process.env.NEXT_PUBLIC_url_path}/v1/address?convert=${value}`
         try {
           const res = await fetch(ENDPOINT, {
             method: 'GET'
@@ -37,7 +37,7 @@ export default function Home() {
           setLoading(false);
         }
       } else {
-        const ENDPOINT = `http://localhost:5002/v1/ens?convert=${value}`
+        const ENDPOINT = `${process.env.NEXT_PUBLIC_url_path}/v1/ens?convert=${value}`
         try {
           const res = await fetch(ENDPOINT, {
             method: 'GET'
